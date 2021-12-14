@@ -38,11 +38,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('admin')}}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Admin</div>
             </a>
 
             <!-- Divider -->
@@ -50,7 +50,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{url('admin')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -104,6 +104,51 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{url('admin/customer/create')}}">Add New</a>
                         <a class="collapse-item" href="{{url('admin/customer')}}">View All</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- DepartmentMaster -->
+            <li class="nav-item">
+                <a class="nav-link @if(!request()->is('admin/department*')) collapsed @endif" href="#" data-toggle="collapse" data-target="#DepartmentMaster"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Department</span>
+                </a>
+                <div id="DepartmentMaster" class="collapse @if(request()->is('admin/department*')) show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{url('admin/department/create')}}">Add New</a>
+                        <a class="collapse-item" href="{{url('admin/department')}}">View All</a>
+                    </div>
+                </div>
+            </li>
+
+             <!-- StaffMaster -->
+             <li class="nav-item">
+                <a class="nav-link @if(!request()->is('admin/staff*')) collapsed @endif" href="#" data-toggle="collapse" data-target="#StaffMaster"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Staff</span>
+                </a>
+                <div id="StaffMaster" class="collapse @if(request()->is('admin/staff*')) show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{url('admin/staff/create')}}">Add New</a>
+                        <a class="collapse-item" href="{{url('admin/staff')}}">View All</a>
+                    </div>
+                </div>
+            </li>
+
+             <!-- BookingMaster -->
+             <li class="nav-item">
+                <a class="nav-link @if(!request()->is('admin/booking*')) collapsed @endif" href="#" data-toggle="collapse" data-target="#BookingMaster"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Booking</span>
+                </a>
+                <div id="BookingMaster" class="collapse @if(request()->is('admin/booking*')) show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{url('admin/booking/create')}}">Add New</a>
+                        <a class="collapse-item" href="{{url('admin/booking')}}">View All</a>
                     </div>
                 </div>
             </li>

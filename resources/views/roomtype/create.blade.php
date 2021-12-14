@@ -13,11 +13,17 @@
         </h6>
     </div>
     <div class="card-body">
+    @if($errors->any())
+        @foreach($errors->all() as $error)
+            <p class="text-danger">{{$error}}</p>
+        @endforeach
+    @endif
+
         @if(Session::has('success'))
           <p class="text-success">{{session('success')}}</p>
         @endif
         <div class="table-responsive">
-            <form action="{{url('admin/roomtype')}}" method="post">
+            <form action="{{url('admin/roomtype')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <table class="table table-bordered">
                     <tr>
@@ -32,6 +38,11 @@
                         <th>Detail</th>
                         <td><textarea name="detail" id="" cols="30" rows="10" class="form-control"></textarea></td>
                     </tr>
+
+                    <tr>
+                        <th>Gallery</th>
+                        <td><input type="file" multiple name="imgs[]" /></td>
+                     </tr>
                     
                     <tr>
                         <td colspan="2">

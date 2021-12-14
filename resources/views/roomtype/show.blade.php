@@ -30,6 +30,20 @@
                         <th>Detail</th>
                         <td>{{$data->detail}}</td>
                     </tr>
+                    <tr>
+                                        <th>Gallery Images</th>
+                                        <td>
+                                            <table class="table table-bordered mt-3">
+                                                <tr>
+                                                    @foreach($data->roomtypeimgs as $img)
+                                                    <td class="imgcol{{$img->id}}">
+                                                        <img width="150" src="{{asset('storage/app/'.$img->img_src)}}" />
+                                                    </td>
+                                                    @endforeach
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
                 </table>
             </form>
         </div>

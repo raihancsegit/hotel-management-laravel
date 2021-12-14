@@ -4,6 +4,9 @@ use App\Http\Controllers\RoomtypeController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StaffDepartment;
+use App\Http\Controllers\StaffController;
+use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,3 +45,25 @@ Route::resource('admin/roomtype',RoomtypeController::class);
 // Customer
 Route::get('admin/customer/{id}/delete',[CustomerController::class,'destroy']);
 Route::resource('admin/customer',CustomerController::class);
+
+// Delete Image
+Route::get('admin/roomtypeimage/delete/{id}',[RoomtypeController::class,'destroy_image']);
+
+// Department
+Route::get('admin/department/{id}/delete',[StaffDepartment::class,'destroy']);
+Route::resource('admin/department',StaffDepartment::class);
+
+// Staff Payment
+Route::get('admin/staff/payments/{id}',[StaffController::class,'all_payments']);
+Route::get('admin/staff/payment/{id}/add',[StaffController::class,'add_payment']);
+Route::post('admin/staff/payment/{id}',[StaffController::class,'save_payment']);
+Route::get('admin/staff/payment/{id}/{staff_id}/delete',[StaffController::class,'delete_payment']);
+
+// Staff CRUD
+Route::get('admin/staff/{id}/delete',[StaffController::class,'destroy']);
+Route::resource('admin/staff',StaffController::class);
+
+// Booking
+Route::get('admin/booking/{id}/delete',[BookingController::class,'destroy']);
+Route::get('admin/booking/available-rooms/{checkin_date}',[BookingController::class,'available_rooms']);
+Route::resource('admin/booking',BookingController::class);

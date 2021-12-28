@@ -21,7 +21,7 @@
                                             <th>#</th>
                                             <th>Customer</th>
                                             <th>Room No.</th>
-                                            <th>Room Type</th>
+                                            <!-- <th>Room Type</th> -->
                                             <th>CheckIn Date</th>
                                             <th>CheckOut Date</th>
                                             <th>Ref</th>
@@ -33,7 +33,7 @@
                                             <th>#</th>
                                             <th>Customer</th>
                                             <th>Room No.</th>
-                                            <th>Room Type</th>
+                                            <!-- <th>Room Type</th> -->
                                             <th>CheckIn Date</th>
                                             <th>CheckOut Date</th>
                                             <th>Ref</th>
@@ -46,7 +46,6 @@
                                             <td>{{$booking->id}}</td>
                                             <td>{{$booking->customer->full_name}}</td>
                                             <td>{{$booking->room->title}}</td>
-                                            <td>{{$booking->room->Roomtype->title}}</td>
                                             <td>{{$booking->checkin_date}}</td>
                                             <td>{{$booking->checkout_date}}</td>
                                             <td>{{$booking->ref}}</td>

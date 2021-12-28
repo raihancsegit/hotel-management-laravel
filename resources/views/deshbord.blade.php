@@ -136,6 +136,7 @@
     <div class="col-xl-4 col-lg-5">
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
+           
             <div
                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
@@ -262,22 +263,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 mb-4">
-                <div class="card bg-secondary text-white shadow">
-                    <div class="card-body">
-                        Secondary
-                        <div class="text-white-50 small">#858796</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 mb-4">
-                <div class="card bg-light text-black shadow">
-                    <div class="card-body">
-                        Light
-                        <div class="text-black-50 small">#f8f9fc</div>
-                    </div>
-                </div>
-            </div>
+           
             <div class="col-lg-6 mb-4">
                 <div class="card bg-dark text-white shadow">
                     <div class="card-body">
@@ -333,6 +319,12 @@
 
  <!-- Page level plugins -->
  <script src="{{asset('public')}}/vendor/chart.js/Chart.min.js"></script>
+
+ <script type="text/javascript">
+    var _labels={!! json_encode($labels) !!};
+    var _data={!! json_encode($data) !!};
+
+</script>
 
 <!-- Page level custom scripts -->
 <script src="{{asset('public')}}/js/demo/chart-area-demo.js"></script>

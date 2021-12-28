@@ -49,7 +49,7 @@ class CustomerController extends Controller
         if($request->hasFile('photo')){
             $imgPath=$request->file('photo')->store('public/imgs');
         }else{
-            $imgPath=null;
+            $imgPath="null";
         }
 
         $data=new Customer;
@@ -139,5 +139,37 @@ class CustomerController extends Controller
 
         Customer::where('id',$id)->delete();
        return redirect('admin/customer')->with('success','Data has been deleted.');
+    }
+
+
+    // Login
+    function login(){
+        return view('frontlogin');
+    }
+
+    // Check Login
+    function customer_login(Request $request){
+        $email=$request->email;
+        $pwd=sha1($request->password);
+        $detail=Customer::where(['email'=>$email,'password'=>$pwd])->count();
+        if($detail>0){
+            $detail=Customer::where(['email'=>$email,'password'=>$pwd])->get();
+            session(['customerlogin'=>true,'data'=>$detail]);
+            return redirect('/');
+        }else{
+            return redirect('login')->with('error','Invalid email/password!!');
+        }
+    }
+
+
+
+    // register
+    function register(){
+        return view('register');
+    }
+
+    function logout(){
+        session()->forget(['customerlogin','data']);
+        return redirect('login');
     }
 }

@@ -126,4 +126,11 @@ class BookingController extends Controller
 
         return response()->json(['data'=>$arooms]);
     }
+
+    public function front_booking()
+    {
+        $customers=Customer::all();
+        $rooms=Room::all();
+        return view('front-booking',['data'=>$customers,'rooms'=>$rooms]);
+    }
 }

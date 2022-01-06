@@ -65,6 +65,21 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
+                <a class="nav-link @if(!request()->is('admin/banner*')) collapsed @endif" href="#" data-toggle="collapse" data-target="#banner"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Home Banner</span>
+                </a>
+                <div id="banner" class="collapse @if(request()->is('admin/banner*')) show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{url('admin/banner/create')}}">Add New</a>
+                        <a class="collapse-item" href="{{url('admin/banner')}}">View All</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
                 <a class="nav-link @if(!request()->is('admin/roomtype*')) collapsed @endif" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-table"></i>
@@ -149,6 +164,35 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{url('admin/booking/create')}}">Add New</a>
                         <a class="collapse-item" href="{{url('admin/booking')}}">View All</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- ServiceMaster -->
+            <li class="nav-item">
+                <a class="nav-link @if(!request()->is('admin/service*')) collapsed @endif" href="#" data-toggle="collapse" data-target="#ServiceMaster"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Service</span>
+                </a>
+                <div id="ServiceMaster" class="collapse @if(request()->is('admin/service*')) show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{url('admin/service/create')}}">Add New</a>
+                        <a class="collapse-item" href="{{url('admin/service')}}">View All</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- ServiceMaster -->
+            <li class="nav-item">
+                <a class="nav-link @if(!request()->is('admin/testimonials*')) collapsed @endif" href="#" data-toggle="collapse" data-target="#TestimonialMaster"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Testimonial</span>
+                </a>
+                <div id="TestimonialMaster" class="collapse @if(request()->is('admin/testimonials*')) show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{url('admin/testimonials')}}">View All</a>
                     </div>
                 </div>
             </li>

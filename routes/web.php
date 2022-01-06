@@ -8,6 +8,9 @@ use App\Http\Controllers\StaffDepartment;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\BannerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +25,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[HomeController::class,'home']);
+Route::get('/service/{id}',[HomeController::class,'service_detail']);
+Route::get('page/about-us',[PageController::class,'about_us']);
+Route::get('page/contact-us',[PageController::class,'contact_us']);
 
 
 Route::get('/admin', function () {
@@ -77,4 +83,19 @@ Route::get('logout',[CustomerController::class,'logout']);
 
 Route::get('booking',[BookingController::class,'front_booking']);
 
+// Service CRUD
+Route::get('admin/service/{id}/delete',[ServiceController::class,'destroy']);
+Route::resource('admin/service',ServiceController::class);
+
+// Testimonial
+Route::get('customer/add-testimonial',[HomeController::class,'add_testimonial']);
+Route::post('customer/save-testimonial',[HomeController::class,'save_testimonial']);
+Route::get('admin/testimonial/{id}/delete',[AdminController::class,'destroy_testimonial']);
+Route::get('admin/testimonials',[AdminController::class,'testimonials']);
+
+Route::post('save-contactus',[PageController::class,'save_contactus']);
+
+// Banner Routes
+Route::get('admin/banner/{id}/delete',[BannerController::class,'destroy']);
+Route::resource('admin/banner',BannerController::class);
 
